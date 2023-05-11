@@ -9,3 +9,4 @@ class Trainer():
         self.log_dir = log_dir
 
         self.tb_logger = Logger(self.log_dir + "/tb")
+        
