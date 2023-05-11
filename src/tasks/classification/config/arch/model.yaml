@@ -1,7 +1,20 @@
 #######################################################################
+  # model parameters
+#######################################################################
+model:
+  feature_extractor:
+     model_path: "https://tfhub.dev/google/imagenet/inception_resnet_v2/feature_vector/5"
+     batch_norm_momentum: 0.997
+     feature_vector_size: 1536
+  hidden_layer_sizes:
+    - hidden_1: 1024
+    - hidden_2: 352
+    - hidden_3: 64
+#######################################################################
   # training parameters
 #######################################################################
 train:
+  loss: "xentropy"
   max_epochs: 1000
   learning_rate: 0.0005
   batch_size: 8

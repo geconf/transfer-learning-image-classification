@@ -3,6 +3,9 @@ import os
 import datetime
 import yaml
 import shutil
+import __init__ as booger
+
+from tasks.classification.modules.trainer import *
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("./train.py")
@@ -10,7 +13,7 @@ if __name__ == '__main__':
         '--dataset', '-d',
         type=str,
         required=True,
-        help='Dataset to train with. This should be the path to',
+        help='Dataset to train with. This should be the path to the the folder that contains all subtypes',
     )
     parser.add_argument(
         '--arch_cfg', '-ac',
@@ -40,6 +43,7 @@ if __name__ == '__main__':
     print("SETTINGS")
     print("dataset", FLAGS.dataset)
     print("arch_cfg", FLAGS.arch_cfg)
+    print("data_cfg", FLAGS.data_cfg)
     print("log", FLAGS.log)
     print("----------\n")
 
@@ -82,5 +86,7 @@ if __name__ == '__main__':
         quit()
 
     # create trainer and start the training
+    trainer = Trainer(ARCH, DATA, FLAGS.dataset, FLAGS.log)
+    #trainer.train()
     
     
