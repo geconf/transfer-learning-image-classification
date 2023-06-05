@@ -11,5 +11,5 @@ class Parser():
         self.labels = labels
         self.batch_size = batch_size
 
-        print("Hi Python")
+        print("Hi Python this runs fine")
     
